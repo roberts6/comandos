@@ -5,8 +5,9 @@ const express = require("express");
 const app = express();
 // esta variable constante lo que hace es ejecutar express
 
+const public =path.resolve(__dirname,'./public');
 app.use(express.static('public')); 
-//aquí lo que vamos a indicar es que sirva imÃ¡genes, archivos CSS, y archivos JavaScript desde un directorio nombrado 'public' al mismo nivel desde donde llama a node:
+//aquí lo que vamos a indicar es que sirva imégenes, archivos CSS, y archivos JavaScript desde un directorio nombrado 'public'. Si no hacemos esta acción no vamos a poder acceder a ningún archivo dentro de la carpeta 'public'
 
 //console.log(app);
 
