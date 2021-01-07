@@ -7,6 +7,7 @@ const app = express();
 
 const public =path.resolve(__dirname,'./public');
 app.use(express.static('public')); 
+OTRA FORMA DE ESCRIBIRLO SERÍA: app.use(express.static(path.resolve(__dirname,'./public'));
 //aquí lo que vamos a indicar es que sirva imégenes, archivos CSS, y archivos JavaScript desde un directorio nombrado 'public'. Si no hacemos esta acción no vamos a poder acceder a ningún archivo dentro de la carpeta 'public'
 
 //console.log(app);
