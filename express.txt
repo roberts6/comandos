@@ -58,3 +58,22 @@ usandoExpress.get("/", function(req, res){
     )});
 //el ejemplo anterior es CLAVE para entender cómo llamar desde js un archivo html. Esta parte res.sendFile(path.join(__dirname, "la ruta del archivo") 
 
+
+
+
+RESUMEN --->
+
+const express = require("express");
+const app = express();
+const path = require("path");
+
+app.use('/static', express.static(__dirname + '/public'));
+
+const publicPath = path.resolve(__dirname, "./mercado-liebre");
+
+app.listen(3666, () => console.log("Funcionando en el puerto 3666"));
+
+app.get("/", function(req, res){
+    res.sendFile(path.join(__dirname, "views/index.html")
+    )});
+
