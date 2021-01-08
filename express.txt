@@ -63,6 +63,9 @@ usandoExpress.get("/", function(req, res){
 
 RESUMEN --->
 
+-> npm init
+-> npm install --save express
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -77,3 +80,11 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "views/index.html")
     )});
 
+
+
+PARA INSTALAR NODEMON (ayuda a no tener que frenar el proceso y volver a comenzarlo cada vez que haga un cambio. Es la forma manual de usar por ejemplo la extensión GoLive)
+
+-> npm i -D nodemon
+
+Luego ir a package.json y escribir entre “scripts” y “tests” el comando “start”: “nodemon app.js”;
+Por último en la terminal comentamos npm start y ya debería funcionar
