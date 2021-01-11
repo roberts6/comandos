@@ -1,0 +1,19 @@
+dentro del head en html colocar la etiqueta: 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+Esta etiqueta meta sirve para dejar listo el html para que nuestra página sea responsive a cualquier dispositivo.
+
+por otro lado en CSS tenemos las medias queries.
+estás medias queries pueden ser establecidas a partir de un tamaño mínimo o máximo (min-width o max-width)
+ej:
+@media(min-width: 600px){
+    p{
+        background: coral;
+        color: black;
+    }
+}
+
+los estándares que se manejan para los medias queries son de:
+576
+768
+992
+1200 
