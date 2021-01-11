@@ -23,3 +23,11 @@ los estándares que se manejan para los medias queries son de:
 768
 992
 1200 
+
+
+por último
+el comando max-width dentro de una etiqueta lo que va a hacer es mantener el width (en % o vw) que acabo de indicarle hasta ese nivel de px. O sea que nunca va a superar ese ancho
+
+ej: p{
+    width: 80%;
+    max-width: 1200px;}
