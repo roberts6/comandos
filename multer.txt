@@ -1,0 +1,39 @@
+1) instalar multer en el proyecto en que lo voy a usar.
+
+npm i multer 
+
+2) se llama en el archivo de rutas en la que va a ser utilizado
+
+const multer = require ('multer');
+
+3) para poder enviar archivos en el formulario (de lo contrario solo enviaríamos texto) es necesario en el form agregar, además del action y el method, la propiedad enctype = 'multipart/form-data'
+
+ej: <form action = 'Nombre carpeta' method = "post" enctype = 'multipart/form-data'>
+
+4) regresamos a la ruta y vamos a decirle a multer dónde y con qué nombre tiene que guardar esos archivos.
+ Para eso vamos a usar otra constante llamada 'storage' donde vamos a invocar el módulo multer y en él el método diskStorage. A su vez dentro tendrá un objeto literal con
+ 2 propiedades --> destination y filename
+ 
+ ej: const storage = multer.diskStorage ({
+     destination: (req,file,cb) => {
+     cb(null, path.join(__dirname, '../public/img/groups'))},
+     
+     filename: (req, file, cb) => {
+     const newFileName = '';
+     cb(null, newFileName)
+     }
+     });
+     
+     const upload = multer ({ storage });
+     
+     5) por último hay que ir en específico a la ruta que va a estar usando multer y entre la ruta y la acción del controlador colocar este multer que acabamos de crear.
+     
+     ej: router.post = ('/', upload.single('name del input en el form', controller.store));
+     
+     
+     EXTRA --> para no repetir el nombre de la imagen podemos agregar date.now(), lo que da la fecha en milisegundos, en filename quedando así:
+     
+     filename: (req, file, cb) => {
+     const newFileName = 'group ' + Date.now() + path.extname(file.originalname);
+     cb(null, newFileName)
+     }
