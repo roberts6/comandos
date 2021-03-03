@@ -1,0 +1,36 @@
+PASO 1: habilitar las sesionesPara hacer funcionar el login, lo primero que tendremos que tener habilitado es el uso delas sesiones
+
+-->  npm i express-session
+
+* A continuación nos toca habilitar las sesiones, para eso trabajaremos en el ​app.js
+
+const session = require('express-session');
+              y
+app.use(session({secret: 'Nombre del sitio',
+resave: false,
+saveUninitialized: true,}));
+
+
+
+PASO 2: habilitar las cookiesAdicionalmente para funcionalidades algo más avanzadas como recordar al usuario,estaremos manejando cookies y por eso necesitamos un módulo llamado ​CookieParser​
+
+--> npm i cookie-parser
+
+Luego en el entri point --> const session = require('express-session');app.use(cookieParser())
+
+
+
+PASO 3: habilitar la encriptación de datos. Por último, nuestro login no estaría completo si no nos encargamos de implementar un guardado seguro de contraseñas.
+
+--> npm i bcryptjs
+
+* Para encriptar un dato                
+let hash = bcrypt.hashSync('¡miContraseña!');
+
+* Para verificar un dato 
+bcrypt.compareSync("¡miContraseña!", hash); // true
+bcrypt.compareSync("otraContraseña", hash); // false
+
+
+
+
